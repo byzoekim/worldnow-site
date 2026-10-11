@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Authorization · Viral Factory</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="../index.html">VIRAL FACTORY</a>
+  <nav class="site" aria-label="Site">
+    <a href="../index.html">Home</a>
+    <a href="../privacy.html">Privacy Policy</a>
+    <a href="../terms.html">Terms of Service</a>
+  </nav>
+</div></header>
+<main><div class="wrap">
+  <h1 id="title">Authorization</h1>
+  <p class="lead" id="msg">This page is used only by the Viral Factory operator when connecting their own account.</p>
+  <div class="codebox" id="box" hidden>
+    <output id="code" aria-label="Authorization code"></output>
+    <button type="button" id="copy">Copy code</button>
+  </div>
+  <p class="meta" id="state"></p>
+  <div class="note">This page runs entirely in your browser. The code is not stored or sent anywhere. Paste it into Viral Factory on your own computer, then close this tab. Codes expire quickly and work only together with the app's secret.</div>
+</div></main>
+<footer class="site"><div class="wrap">
+  <span>Viral Factory</span>
+  <span><a href="../privacy.html">Privacy Policy</a> · <a href="../terms.html">Terms of Service</a></span>
+</div></footer>
+<script>
+(() => {
+  var q = new URLSearchParams(location.search);
+  var code = q.get("code"), err = q.get("error"), state = q.get("state");
+  // keep the code out of the address bar and browser history
+  if (location.search) history.replaceState(null, "", location.pathname);
+  var t = document.getElementById("title"), m = document.getElementById("msg");
+  if (err) {
+    t.textContent = "Authorization was not completed";
+    m.textContent = `${q.get("error_description") || err} — you can close this tab and try again.`;
+  } else if (code) {
+    t.textContent = "Authorization received";
+    m.textContent = "Copy this one-time code into Viral Factory on your computer.";
+    document.getElementById("code").textContent = code;
+    document.getElementById("box").hidden = false;
+    if (state) document.getElementById("state").textContent = `State: ${state}`;
+    document.getElementById("copy").addEventListener("click", function () {
+      navigator.clipboard.writeText(code).then(() => { this.textContent = "Copied"; }, () => { this.textContent = "Select and copy manually"; });
+    });
+  }
+})();
+</script>
+</body>
+</html>

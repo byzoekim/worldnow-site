@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Page not found · Viral Factory</title>
+<style>
+:root{color-scheme:light dark}body{margin:0;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:#f6f7f9;color:#14161c}
+@media (prefers-color-scheme:dark){body{background:#0e1015;color:#eef0f4}a{color:#7aa2ff}}
+main{max-width:860px;margin:0 auto;padding:48px 16px}h1{font-size:32px;margin:0 0 8px}a{color:#1f5eff}
+</style>
+</head>
+<body>
+<main>
+  <h1>Page not found</h1>
+  <p>The page you were looking for does not exist.</p>
+  <p id="home"><a href="./index.html">Go to the Viral Factory home page</a></p>
+</main>
+<script>
+// GitHub Pages serves this page at any missing path; link to the site root (user or project page)
+(()=> {var p=location.pathname.split("/").filter(Boolean);var a=document.querySelector("#home a");
+if(location.hostname.endsWith("github.io")&&p.length&&!location.hostname.startsWith(p[0]))a.href=`/${p[0]}/`;else a.href="/";})();
+</script>
+</body>
+</html>

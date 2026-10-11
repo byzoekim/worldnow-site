@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Viral Factory</title>
+<meta name="description" content="How Viral Factory handles data, including OAuth tokens and post records for TikTok, Instagram and YouTube.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html">VIRAL FACTORY</a>
+  <nav class="site" aria-label="Site">
+    <a href="index.html">Home</a>
+    <a href="privacy.html" aria-current="page">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </nav>
+</div></header>
+
+<main><div class="wrap">
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective date: October 11, 2026</p>
+
+  <p>This policy explains what data Viral Factory (the "tool") and this website handle, and why. Viral Factory is a private production tool run by one individual creator (the "operator"). It is used to publish the operator's own videos to the operator's own accounts. It is not offered to the public, and it has no user accounts, customers or sign-ups.</p>
+
+  <h2>1. Who this policy covers</h2>
+  <ul>
+    <li><b>The operator</b>, who authorizes Viral Factory to publish to their own TikTok, Instagram and YouTube accounts.</li>
+    <li><b>Visitors to this website.</b></li>
+  </ul>
+  <p>Viral Factory does not collect personal data about viewers, followers, commenters or any other platform users.</p>
+
+  <h2>2. Data obtained through platform APIs</h2>
+  <p>Viral Factory connects only to the operator's own accounts, through official OAuth authorization. Depending on the platform it handles:</p>
+  <table>
+    <thead><tr><th>Data</th><th>Why it is used</th><th>Where it is kept</th></tr></thead>
+    <tbody>
+      <tr><td>OAuth tokens (access token, refresh token)</td><td>To upload videos the operator has approved to the operator's account</td><td>Refresh or long-lived tokens are kept only in a local configuration file on the operator's computer. That file is excluded from version control and never published. Short-lived access tokens are kept in memory only while an upload runs.</td></tr>
+      <tr><td>Account username or handle, and channel or user ID</td><td>To confirm that a video goes to the correct account. The upload is refused if the authorized account does not match the configured one.</td><td>Not stored. It is compared at upload time.</td></tr>
+      <tr><td>Post ID, post URL, publish time and status</td><td>To show the publishing result to the operator, and to prevent the same video from being posted twice</td><td>A local publishing record on the operator's computer</td></tr>
+      <tr><td>Privacy and interaction options offered by TikTok for the account</td><td>To choose a valid posting option</td><td>Not stored</td></tr>
+    </tbody>
+  </table>
+  <p>Viral Factory does <b>not</b> access or store:</p>
+  <ul>
+    <li>followers or following lists;</li>
+    <li>comments or direct messages;</li>
+    <li>other users' videos or profiles;</li>
+    <li>contacts, location or payment data;</li>
+    <li>analytics about individual viewers.</li>
+  </ul>
+
+  <h3>TikTok specifically</h3>
+  <ul>
+    <li>Viral Factory uses TikTok Login Kit and the Content Posting API (Direct Post), and requests the <code>video.publish</code> scope.</li>
+    <li>The basic profile scope included by Login Kit is not used beyond confirming the account username returned by the Content Posting API.</li>
+    <li>The data received from TikTok is used only to publish the operator's approved videos to the operator's accounts.</li>
+  </ul>
+
+  <h2>3. Content and public data</h2>
+  <p>The videos contain only:</p>
+  <ul>
+    <li>information from public sources, such as official statistics, public research and public news headlines;</li>
+    <li>graphics created by the tool.</li>
+  </ul>
+  <p>Public web sources are collected while respecting robots.txt and AI-crawler opt-outs. Each source is stored as an exact copy so that every number can be checked. No private or personal data is collected to make videos.</p>
+
+  <h2>4. Sharing</h2>
+  <ul>
+    <li>Data obtained from TikTok, Instagram or YouTube is not sold, rented or shared with anyone.</li>
+    <li>It is not used for advertising.</li>
+    <li>It is not sent to AI service providers. The tool sends AI services only public topic information, such as public headlines and verified public figures, when it uses AI to judge topics.</li>
+    <li>Data is sent to a platform only when publishing to that same platform.</li>
+  </ul>
+
+  <h2>5. Retention and deletion</h2>
+  <ul>
+    <li>Tokens are kept until the operator removes them or revokes access.</li>
+    <li>Access can be revoked at any time:
+      <ul>
+        <li>TikTok: Settings → Security → Apps and services permissions;</li>
+        <li>Instagram: Settings → Apps and websites;</li>
+        <li>YouTube: Google Account → Security → Third-party apps.</li>
+      </ul>
+    </li>
+    <li>Deleting the local configuration entry removes the stored token.</li>
+    <li>Local publishing records (post IDs and status) are kept for duplicate prevention and can be deleted by the operator at any time.</li>
+  </ul>
+
+  <h2>6. This website</h2>
+  <ul>
+    <li>This website is a set of static pages. It sets no cookies, has no forms, and uses no analytics, advertising or tracking scripts.</li>
+    <li>It loads no third-party fonts or scripts.</li>
+    <li>It is hosted on GitHub Pages. GitHub may process technical data such as IP addresses to deliver the pages; see GitHub's privacy statement.</li>
+  </ul>
+  <p>The <code>oauth/callback.html</code> page is used only by the operator during account authorization:</p>
+  <ul>
+    <li>It displays the one-time authorization code in the operator's own browser so the operator can copy it into the tool on their computer.</li>
+    <li>It does not store the code or send it anywhere.</li>
+  </ul>
+
+  <h2>7. Security</h2>
+  <ul>
+    <li>Secrets are never written into source code or published files.</li>
+    <li>Error messages are scrubbed of token values.</li>
+    <li>Uploads go only through each platform's official HTTPS API.</li>
+  </ul>
+
+  <h2>8. Children</h2>
+  <p>Viral Factory and this website are not directed to children and do not knowingly collect data from children.</p>
+
+  <h2>9. Changes</h2>
+  <p>If data handling changes, this page will be updated and the effective date revised.</p>
+
+  <h2>10. Contact</h2>
+  <p>For questions about this policy: <span class="contact-missing" data-contact>CONTACT_EMAIL_REQUIRED</span></p>
+</div></main>
+
+<footer class="site"><div class="wrap">
+  <span>Viral Factory · operated by an individual creator for WORLDNOW KR / WORLDNOW GLOBAL</span>
+  <span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></span>
+</div></footer>
+</body>
+</html>

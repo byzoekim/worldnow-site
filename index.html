@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viral Factory</title>
+<meta name="description" content="Viral Factory is a private, owner-operated production tool that turns verified public data into short vertical explainer videos for the WORLDNOW KR and WORLDNOW GLOBAL channels.">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html">VIRAL FACTORY</a>
+  <nav class="site" aria-label="Site">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+  </nav>
+</div></header>
+
+<main><div class="wrap">
+  <h1>Short, verified explainer videos — made from public data</h1>
+  <p class="lead">Viral Factory is a private production tool run by one individual creator. It turns verified public data into 10-second vertical videos for the creator's own channels, <b>WORLDNOW KR</b> (Korean) and <b>WORLDNOW GLOBAL</b> (English).</p>
+
+  <div class="cards">
+    <div class="card"><h3>Not a public service</h3><p>There are no sign-ups, end-user accounts or customers. The tool only posts to social media accounts that belong to its operator.</p></div>
+    <div class="card"><h3>Verified facts only</h3><p>Every number in a video comes from a stored copy of an official or reputable public source, such as the World Bank, Our World in Data or the USGS. Each number is shown with its source and reference date.</p></div>
+    <div class="card"><h3>A person approves every video</h3><p>The operator reviews and approves each finished video and its captions before it can be scheduled. Nothing is posted without that approval.</p></div>
+  </div>
+
+  <h2>What Viral Factory does</h2>
+  <ol class="flow">
+    <li><b>Find a topic.</b> It looks at public news headlines, public trend lists and long-standing questions people search for, such as rankings, prices and country comparisons. Politics-centred stories, celebrity gossip, sports and daily weather are excluded.</li>
+    <li><b>Verify.</b> It collects the facts from public sources. It respects each site's robots.txt and AI-crawler opt-outs, and keeps an exact stored copy of every source. Every figure is re-checked against that copy.</li>
+    <li><b>Write and render.</b> Code writes the headline options, renders a 1080×1920 video with sharp text and runs automatic quality checks. AI image or video models never draw text or data.</li>
+    <li><b>Package.</b> For each video it prepares a cover image and separate copy for TikTok, Instagram Reels and YouTube Shorts: title, caption, hashtags and a source note.</li>
+    <li><b>Approve and publish.</b> After the operator approves a video, it is scheduled and published to the operator's own account for that channel through each platform's official API.</li>
+  </ol>
+
+  <h2>How Viral Factory uses platform APIs</h2>
+  <p>Viral Factory connects only to accounts its operator owns. It uses each platform's official OAuth authorization and official publishing API. It does not scrape, automate a browser or read other people's content or data.</p>
+
+  <h3>TikTok — Login Kit and Content Posting API</h3>
+  <ul>
+    <li><b>Purpose:</b> to publish videos that the operator has approved to the operator's own TikTok accounts (@worldnowkr and @worldnowglobal).</li>
+    <li><b>Authorization:</b> the operator signs in with TikTok (OAuth) once per account and grants the <code>video.publish</code> scope. TikTok Login Kit also includes the basic profile scope (<code>user.info.basic</code>) by default. Viral Factory does not use any profile data beyond the account username, which it needs to confirm the upload goes to the right account.</li>
+    <li><b>What it calls:</b>
+      <ul>
+        <li><code>/v2/post/publish/creator_info/query/</code>: confirms which account is authorized and which privacy options are available.</li>
+        <li><code>/v2/post/publish/video/init/</code> with <code>FILE_UPLOAD</code>, followed by the video upload.</li>
+        <li><code>/v2/post/publish/status/fetch/</code>: confirms the post finished.</li>
+      </ul>
+    </li>
+    <li><b>Safeguards:</b>
+      <ul>
+        <li>If the authorized account's username is not the one configured for that channel, the upload is refused.</li>
+        <li>Each video is posted at most once per account.</li>
+        <li>Failed uploads are retried only a limited number of times.</li>
+      </ul>
+    </li>
+    <li><b>What it does not do:</b>
+      <ul>
+        <li>It does not read followers, comments, messages, other users' videos or analytics.</li>
+        <li>It does not post to anyone else's account.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Instagram and YouTube (planned)</h3>
+  <p>The same approved videos may be published to the operator's own Instagram professional accounts and YouTube channels through official APIs:</p>
+  <ul>
+    <li><b>Instagram:</b> the Instagram API with Instagram Login (content publishing permission).</li>
+    <li><b>YouTube:</b> the YouTube Data API v3 with the <code>youtube.upload</code> scope.</li>
+  </ul>
+  <p>The same rules apply: only the operator's own accounts, the account is checked before every upload, and no other people's data is read.</p>
+
+  <div class="note">How data is handled — tokens, post IDs and what is never collected — is described in the <a href="privacy.html">Privacy Policy</a>. Use of this website and the tool is covered by the <a href="terms.html">Terms of Service</a>.</div>
+</div></main>
+
+<footer class="site"><div class="wrap">
+  <span>Viral Factory · operated by an individual creator for WORLDNOW KR / WORLDNOW GLOBAL</span>
+  <span><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a></span>
+</div></footer>
+</body>
+</html>
